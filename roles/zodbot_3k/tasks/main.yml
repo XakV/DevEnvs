@@ -1,0 +1,27 @@
+---
+- name: supybot3 | pipenv
+  dnf:
+    name: pipenv
+    state: latest
+  become: True
+
+- name: supybot3 | git_config
+  git_config:
+    name: user.name
+    scope: global
+    value: 'aikidouke'
+  git_config:
+    name: user.email
+    scope: global
+    value: 'zach@mailup.net'
+
+- name: supybot3 | clone from Flozbot and plugins
+  git:
+    repo: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/Vagrant/zodbot_3k/"
+  with_items:    
+    - "ssh://git@pagure.io/FLozbot.git"
+    - "ssh://git@pagure.io/forks/aikidouke/supybot-notify.git"
+    - "ssh://git@pagure.io/forks/aikidouke/supybot-meetbot.git"
+
+

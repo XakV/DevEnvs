@@ -1,0 +1,5 @@
+- name: zodbot_3k
+  hosts: localhost
+  roles:
+    - zodbot_3k
+
