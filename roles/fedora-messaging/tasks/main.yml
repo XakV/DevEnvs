@@ -5,6 +5,16 @@
 - import_tasks: irc.yml
 - import_tasks: postfix.yml
 
+- name: open some ports
+  firewalld:
+    port: "{{ item }}/tcp"
+    permanent: yes
+    state: enabled
+  with_items:
+    - 6667
+    - 5000
+    - 15672
+
 - name: Install helpful development packages
   dnf: name={{ item }} state=present
   with_items:

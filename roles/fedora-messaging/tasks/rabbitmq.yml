@@ -30,18 +30,18 @@
     name: /fedora-notifications
     state: present
 
-- name: Create a guest user in RabbitMQ
-  rabbitmq_user:
-    user: guest
-    password: guest
-    tags: administrator
-    permissions:
-      - vhost: /fedora-notifications
-        configure_priv: .*
-        read_priv: .*
-        write_priv: .*
-      - vhost: /
-        configure_priv: .*
-        read_priv: .*
-        write_priv: .*
-    state: present
+    #- name: Create a guest user in RabbitMQ
+    #  rabbitmq_user:
+      #    user: guest
+      #    password: guest
+      #    tags: administrator
+      #    permissions:
+        #      - vhost: /fedora-notifications
+        #        configure_priv: .*
+        #        read_priv: .*
+        #        write_priv: .*
+        #      - vhost: /
+        #        configure_priv: .*
+        #        read_priv: .*
+        #        write_priv: .*
+        #        #    state: present
